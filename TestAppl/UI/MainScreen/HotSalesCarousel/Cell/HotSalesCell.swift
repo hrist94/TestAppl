@@ -19,6 +19,8 @@ class HotSalesCell: UICollectionViewCell {
     private var backImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
         return view
     }()
     
@@ -42,7 +44,7 @@ class HotSalesCell: UICollectionViewCell {
         button.setTitle("Buy now!", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 11)
         button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 11
         return button
     }()
     

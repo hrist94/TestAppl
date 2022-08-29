@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CategoryCarousel: UIView {
+class CategoryCarouselView: UIView {
     
     private let categories: [CategoryModel] = [CategoryModel(icon: #imageLiteral(resourceName: "Phone"), name: "Phones"), CategoryModel(icon: #imageLiteral(resourceName: "PC"), name: "Computer"), CategoryModel(icon: #imageLiteral(resourceName: "Health"), name: "Health"), CategoryModel(icon: #imageLiteral(resourceName: "Book"), name: "Books"), CategoryModel(icon: #imageLiteral(resourceName: "Phone"), name: "Phones"), CategoryModel(icon: #imageLiteral(resourceName: "PC"), name: "Computer"), CategoryModel(icon: #imageLiteral(resourceName: "Health"), name: "Health"), CategoryModel(icon: #imageLiteral(resourceName: "Book"), name: "Books")]
     
@@ -74,7 +74,7 @@ class CategoryCarousel: UIView {
         headerLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(17)
             make.top.equalToSuperview()
-            make.width.equalTo(193)
+            make.width.equalTo(173)
             make.height.equalTo(32)
         }
         
@@ -94,7 +94,7 @@ class CategoryCarousel: UIView {
     
 }
 
-extension CategoryCarousel: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CategoryCarouselView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }

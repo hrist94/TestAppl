@@ -27,3 +27,7 @@ class HotSalesCellViewModel {
         image = offer.picture
     }
 }
+
+enum HotSalesSection {
+    case main
+}

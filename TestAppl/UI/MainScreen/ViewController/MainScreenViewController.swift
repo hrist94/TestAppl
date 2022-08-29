@@ -8,10 +8,20 @@
 import UIKit
 import Combine
 
-final class MainScreenViewController<View: MainScreenView>: BaseViewController<View> {
+final class MainScreenViewController: UIViewController {
     
+    var service = MainScreenService.shared
+    var isFetchingData = CurrentValueSubject<Bool, Never>(false)
+    
+    private typealias DataSource = UICollectionViewDiffableDataSource<HotSalesSection, HomeStore>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<HotSalesSection, HomeStore>
+    
+    private lazy var contentView = MainScreenView()
     private let viewModel: MainScreenViewModel
     private var bindings = Set<AnyCancellable>()
+    
+    
+    private var dataSource: DataSource!
     
     init(viewModel: MainScreenViewModel = MainScreenViewModel()) {
         self.viewModel = viewModel
@@ -22,14 +32,44 @@ final class MainScreenViewController<View: MainScreenView>: BaseViewController<V
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        rootView.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1)
-        
-        viewModel.fetchData()
+    override func loadView() {
+        view = contentView
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1)
+        fetchData()
+        configureDataSource()
+    }
     
+    func fetchData() {
+        isFetchingData.value = true
+        service.fetchHotSales()
+            .sink { [unowned self] (completion) in
+                if case let .failure(error) = completion {
+                    print(error.localizedDescription)
+                }
+                self.isFetchingData.value = false
+            } receiveValue: { [unowned self] in self.generateSnapshot(with: $0)
+            }
+            .store(in: &self.bindings)
+    }
+    
+    private func generateSnapshot(with offers: [HomeStore]) {
+        var snapshot = NSDiffableDataSourceSnapshot<HotSalesSection, HomeStore>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(offers)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 
 }
-
+extension MainScreenViewController {
+    private func configureDataSource() {
+        dataSource = DataSource(collectionView: contentView.hotSalesCollectionView.hotSalesCollectionView, cellProvider: { (collectionView, indexPath, offer) -> UICollectionViewCell? in
+            let cell = collectionView.dequeueCollectionReusableCell(withType: HotSalesCell.self, for: indexPath)
+            cell.viewModel = HotSalesCellViewModel(offer: offer)
+            return cell
+        })
+    }
+}

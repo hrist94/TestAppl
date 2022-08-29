@@ -35,13 +35,18 @@ class MainScreenView: UIView {
     }()
     
     private var categoryCarousel: UIView = {
-        let view = CategoryCarousel()
+        let view = CategoryCarouselView()
         return view
     }()
     
     private var searchBar: SearchBar = {
         let view = SearchBar()
         view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    lazy var hotSalesCollectionView: HotSalesView = {
+        let view = HotSalesView()
         return view
     }()
     
@@ -62,6 +67,7 @@ class MainScreenView: UIView {
         contentView.addSubview(filterButton)
         contentView.addSubview(categoryCarousel)
         contentView.addSubview(searchBar)
+        contentView.addSubview(hotSalesCollectionView)
         
         makeConstraints()
     }
@@ -104,6 +110,12 @@ class MainScreenView: UIView {
             make.left.equalToSuperview().offset(32)
             make.right.equalToSuperview().offset(-32)
             make.height.equalTo(34)
+        }
+        
+        hotSalesCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(24)
+            make.height.equalTo(220)
         }
         
     }
