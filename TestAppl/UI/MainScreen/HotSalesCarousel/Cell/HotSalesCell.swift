@@ -11,6 +11,7 @@ import SnapKit
 class HotSalesCell: UICollectionViewCell {
     
     var buyButtonClicked: IntClosure?
+    var isNew: Bool = false
     
     var viewModel: HotSalesCellViewModel! {
         didSet { setUpViewModel() }
@@ -27,6 +28,10 @@ class HotSalesCell: UICollectionViewCell {
     private var headerLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.layer.shadowRadius = 5
+        label.layer.shadowOpacity = 1
+        label.layer.shadowOffset = CGSize(width: 5, height: 5)
+        
         label.font = Fonts.markProBold(size: 25)
         return label
     }()
@@ -66,7 +71,7 @@ class HotSalesCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 15
-        
+        configureNew()
         addElements()
     }
     
@@ -74,8 +79,8 @@ class HotSalesCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(model: HomeStore) {
-        
+    func configureNew() {
+        self.newBadgeBack.isHidden = isNew
     }
     
     private func addElements() {
@@ -102,7 +107,7 @@ class HotSalesCell: UICollectionViewCell {
         
         discriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(headerLabel.snp.bottom).offset(5)
-            make.height.equalTo(5)
+            make.height.equalTo(15)
             make.left.equalToSuperview().offset(30)
         }
         
@@ -112,11 +117,24 @@ class HotSalesCell: UICollectionViewCell {
             make.width.equalTo(98)
             make.height.equalTo(23)
         }
+        
+        newBadgeBack.snp.makeConstraints { make in
+            make.height.width.equalTo(27)
+            make.top.equalToSuperview().offset(16)
+            make.left.equalToSuperview().offset(30)
+        }
+        
+        newBadgeLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(22)
+            make.height.equalTo(12)
+        }
     }
     
     private func setUpViewModel() {
         self.headerLabel.text = viewModel.headerLabel
         self.discriptionLabel.text = viewModel.discriptionLabel
         self.backImage.loadImage(from: viewModel.image)
+        self.isNew = viewModel.isNew
     }
 }

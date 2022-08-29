@@ -11,6 +11,7 @@ import Combine
 class HotSalesCellViewModel {
     @Published var headerLabel: String = ""
     @Published var discriptionLabel: String = ""
+    @Published var isNew: Bool = false
     @Published var image: String = ""
         
     private let offer: HomeStore
@@ -25,6 +26,7 @@ class HotSalesCellViewModel {
         headerLabel = offer.title ?? ""
         discriptionLabel = offer.subtitle ?? ""
         image = offer.picture
+        isNew = offer.isNew ?? false
     }
 }
 

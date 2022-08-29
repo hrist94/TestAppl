@@ -35,6 +35,15 @@
 		2E30514428BD1F2200E1C9EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E30512628BD1F2200E1C9EE /* Assets.xcassets */; };
 		2E58DBD628BD465400E5C5EE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2E58DBD528BD465400E5C5EE /* SnapKit */; };
 		2E58DBD928BD466300E5C5EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2E58DBD828BD466300E5C5EE /* Kingfisher */; };
+		2E58DBE428BD667300E5C5EE /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBDB28BD667300E5C5EE /* Math.swift */; };
+		2E58DBE528BD667300E5C5EE /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBDC28BD667300E5C5EE /* TransitionDriver.swift */; };
+		2E58DBE728BD667300E5C5EE /* PanelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBDE28BD667300E5C5EE /* PanelTransition.swift */; };
+		2E58DBE828BD667300E5C5EE /* InstantPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBDF28BD667300E5C5EE /* InstantPanGestureRecognizer.swift */; };
+		2E58DBE928BD667300E5C5EE /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBE128BD667300E5C5EE /* PresentationController.swift */; };
+		2E58DBEA28BD667300E5C5EE /* DimmPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBE228BD667300E5C5EE /* DimmPresentationController.swift */; };
+		2E58DBEB28BD667300E5C5EE /* TransitionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBE328BD667300E5C5EE /* TransitionDirection.swift */; };
+		2E58DBEF28BD668C00E5C5EE /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBED28BD668C00E5C5EE /* PresentAnimation.swift */; };
+		2E58DBF028BD668C00E5C5EE /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58DBEE28BD668C00E5C5EE /* DismissAnimation.swift */; };
 		2EA1107628BD3A0100576A03 /* MainScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1107528BD3A0100576A03 /* MainScreenService.swift */; };
 		2EA1107828BD3A0F00576A03 /* MainScreenServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1107728BD3A0F00576A03 /* MainScreenServiceError.swift */; };
 		2EA1107B28BD3AA600576A03 /* MainScreenServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1107A28BD3AA600576A03 /* MainScreenServiceProtocol.swift */; };
@@ -69,6 +78,15 @@
 		2E30512328BD1F2200E1C9EE /* UICollectionView+dequeue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+dequeue.swift"; sourceTree = "<group>"; };
 		2E30512428BD1F2200E1C9EE /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		2E30512628BD1F2200E1C9EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E58DBDB28BD667300E5C5EE /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		2E58DBDC28BD667300E5C5EE /* TransitionDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDriver.swift; sourceTree = "<group>"; };
+		2E58DBDE28BD667300E5C5EE /* PanelTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTransition.swift; sourceTree = "<group>"; };
+		2E58DBDF28BD667300E5C5EE /* InstantPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		2E58DBE128BD667300E5C5EE /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		2E58DBE228BD667300E5C5EE /* DimmPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmPresentationController.swift; sourceTree = "<group>"; };
+		2E58DBE328BD667300E5C5EE /* TransitionDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDirection.swift; sourceTree = "<group>"; };
+		2E58DBED28BD668C00E5C5EE /* PresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
+		2E58DBEE28BD668C00E5C5EE /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
 		2EA1107528BD3A0100576A03 /* MainScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenService.swift; sourceTree = "<group>"; };
 		2EA1107728BD3A0F00576A03 /* MainScreenServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenServiceError.swift; sourceTree = "<group>"; };
 		2EA1107A28BD3AA600576A03 /* MainScreenServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenServiceProtocol.swift; sourceTree = "<group>"; };
@@ -107,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				2E30515228BD22F300E1C9EE /* UI */,
+				2E30515328BD230000E1C9EE /* Library */,
 				2E30515D28BD23C800E1C9EE /* AppDelegate */,
 				2E30515E28BD23E000E1C9EE /* Resources */,
 				2E30516028BD23FD00E1C9EE /* Configuration */,
@@ -169,13 +188,12 @@
 		2E30514C28BD210500E1C9EE /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				2E30514728BD202F00E1C9EE /* Category */,
 				2E30515128BD22C200E1C9EE /* ViewController */,
 				2E30514F28BD227D00E1C9EE /* View */,
 				2E30514E28BD21FD00E1C9EE /* Model */,
 				2E30514D28BD21D500E1C9EE /* ViewModel */,
 				2E30514A28BD20B100E1C9EE /* HotSalesCarousel */,
-				2E30515328BD230000E1C9EE /* Library */,
+				2E30514728BD202F00E1C9EE /* Category */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -225,8 +243,8 @@
 		2E30515228BD22F300E1C9EE /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2E30514628BD1FB100E1C9EE /* Elements */,
 				2E30514C28BD210500E1C9EE /* MainScreen */,
+				2E30514628BD1FB100E1C9EE /* Elements */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -261,6 +279,7 @@
 		2E30515728BD235500E1C9EE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2E58DBDA28BD667300E5C5EE /* Transitions */,
 				2E30515A28BD238400E1C9EE /* UICollectionView */,
 				2E30515928BD237400E1C9EE /* UIView */,
 				2E30515828BD236100E1C9EE /* UIImageView */,
@@ -338,6 +357,38 @@
 				2E30512028BD1F2200E1C9EE /* Info.plist */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		2E58DBDA28BD667300E5C5EE /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				2E58DBEC28BD668C00E5C5EE /* Animations */,
+				2E58DBE028BD667300E5C5EE /* Presentation controller */,
+				2E58DBDB28BD667300E5C5EE /* Math.swift */,
+				2E58DBDC28BD667300E5C5EE /* TransitionDriver.swift */,
+				2E58DBDE28BD667300E5C5EE /* PanelTransition.swift */,
+				2E58DBDF28BD667300E5C5EE /* InstantPanGestureRecognizer.swift */,
+				2E58DBE328BD667300E5C5EE /* TransitionDirection.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		2E58DBE028BD667300E5C5EE /* Presentation controller */ = {
+			isa = PBXGroup;
+			children = (
+				2E58DBE128BD667300E5C5EE /* PresentationController.swift */,
+				2E58DBE228BD667300E5C5EE /* DimmPresentationController.swift */,
+			);
+			path = "Presentation controller";
+			sourceTree = "<group>";
+		};
+		2E58DBEC28BD668C00E5C5EE /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				2E58DBED28BD668C00E5C5EE /* PresentAnimation.swift */,
+				2E58DBEE28BD668C00E5C5EE /* DismissAnimation.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		2EA1107928BD3A8C00576A03 /* Protocols */ = {
@@ -440,20 +491,29 @@
 				2E30513F28BD1F2200E1C9EE /* HotSalesCellViewModel.swift in Sources */,
 				2EA1107828BD3A0F00576A03 /* MainScreenServiceError.swift in Sources */,
 				2E30513428BD1F2200E1C9EE /* BestSellerCell.swift in Sources */,
+				2E58DBE828BD667300E5C5EE /* InstantPanGestureRecognizer.swift in Sources */,
 				2E30514228BD1F2200E1C9EE /* Types.swift in Sources */,
+				2E58DBEA28BD667300E5C5EE /* DimmPresentationController.swift in Sources */,
 				2E30513A28BD1F2200E1C9EE /* Fonts.swift in Sources */,
+				2E58DBF028BD668C00E5C5EE /* DismissAnimation.swift in Sources */,
 				2E30512A28BD1F2200E1C9EE /* HotSalesCell.swift in Sources */,
 				2E30512F28BD1F2200E1C9EE /* CategoryCell.swift in Sources */,
 				2EA1107B28BD3AA600576A03 /* MainScreenServiceProtocol.swift in Sources */,
 				2E30512B28BD1F2200E1C9EE /* CategoryCarouselView.swift in Sources */,
 				2E30512928BD1F2200E1C9EE /* MainScreenViewController.swift in Sources */,
+				2E58DBE728BD667300E5C5EE /* PanelTransition.swift in Sources */,
+				2E58DBE528BD667300E5C5EE /* TransitionDriver.swift in Sources */,
 				2E30513228BD1F2200E1C9EE /* SearchBar.swift in Sources */,
 				2E30513528BD1F2200E1C9EE /* MainScreenModel.swift in Sources */,
+				2E58DBEF28BD668C00E5C5EE /* PresentAnimation.swift in Sources */,
 				2E30513128BD1F2200E1C9EE /* UIView.swift in Sources */,
 				2E30513C28BD1F2200E1C9EE /* CategoryModel.swift in Sources */,
 				2E30512E28BD1F2200E1C9EE /* MainScreenViewModel.swift in Sources */,
 				2E30513928BD1F2200E1C9EE /* MainScreenView.swift in Sources */,
 				2EA1107628BD3A0100576A03 /* MainScreenService.swift in Sources */,
+				2E58DBE428BD667300E5C5EE /* Math.swift in Sources */,
+				2E58DBEB28BD667300E5C5EE /* TransitionDirection.swift in Sources */,
+				2E58DBE928BD667300E5C5EE /* PresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

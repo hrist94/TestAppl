@@ -17,8 +17,10 @@ final class MainScreenViewController: UIViewController {
     private typealias Snapshot = NSDiffableDataSourceSnapshot<HotSalesSection, HomeStore>
     
     private lazy var contentView = MainScreenView()
-    private let viewModel: MainScreenViewModel
     private var bindings = Set<AnyCancellable>()
+    private let viewModel: MainScreenViewModel
+    private let transition = PanelTransition()
+    
     
     
     private var dataSource: DataSource!
