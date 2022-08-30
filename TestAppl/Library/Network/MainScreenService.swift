@@ -1,68 +1,88 @@
 //
 //  MainScreenService.swift
-//  Test
+//  TestAppl
 //
-//  Created by Kirill Khristenko on 28.08.2022.
+//  Created by Kirill Khristenko on 29.08.2022.
 //
 
 import Foundation
 import Combine
 
-protocol MainScreenServiceProtocol {
-    func getBestSellers() -> AnyPublisher<MainScreenData, Error>
-}
-
-final class MainScreenService: MainScreenServiceProtocol {
-
-    func getBestSellers() -> AnyPublisher<MainScreenData, Error> {
-        var dataTask: URLSessionDataTask?
-        
-        let onSubscription: (Subscription) -> Void = { _ in dataTask?.resume() }
-        let onCancel: () -> Void = { dataTask?.cancel() }
-        
-        return Future<MainScreenData, Error> { [weak self] result in
-            guard let urlRequest = self?.getUrlRequest() else {
-                result(.failure(ServiceError.urlRequest))
-                return
-            }
-            dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
-                guard let data = data else {
-                    if let error = error {
-                        result(.failure(error))
-                    }
-                    return
-                }
-                do {
-                    let mainData = try JSONDecoder().decode(MainScreenData.self, from: data)
-                    result(.success(mainData))
-                } catch {
-                    result(.failure(error))
-                }
-            }
-        }
-        .handleEvents(receiveSubscription: onSubscription, receiveCancel: onCancel)
-        .receive(on: DispatchQueue.main)
-        .eraseToAnyPublisher()
-    }
+class MainScreenService: MainScreenServiceProtocol {
     
-    private func getUrlRequest() -> URLRequest? {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "run.mocky.io"
-        components.path = "/v3/654bd15e-b121-49ba-a588-960956b15175"
-        
-        guard let url = components.url else { return nil }
-        var request = URLRequest(url: url)
-        request.timeoutInterval = 10.0
-        request.httpMethod = "GET"
-        return request
+    static let shared = MainScreenService()
+    private init() {}
+    private let apiURL = "https://run.mocky.io/v3/654bd15e-b121-49ba-a588-960956b15175"
+    private let urlSession = URLSession.shared
+    private let jsonDecoder = JSONDecoder()
+    private var subscriptions = Set<AnyCancellable>()
+    
+    func fetchHotSales() -> Future<[HomeStore], MainScreenServiceError> {
+        return Future<[HomeStore], MainScreenServiceError> { [unowned self] result in
+            guard let url = URL(string: apiURL) else {
+                return result(.failure(.urlError(URLError(URLError.unsupportedURL))))
+            }
+            
+            self.urlSession.dataTaskPublisher(for: url)
+                .tryMap { (data, response) -> Data in
+                    guard let httpResponse = response as? HTTPURLResponse,
+                          200...299 ~= httpResponse.statusCode else {
+                        throw MainScreenServiceError.responseError((response as? HTTPURLResponse)?.statusCode ?? 500)
+                        
+                    }
+                    return data
+                }
+                .decode(type: MainScreenData.self, decoder: self.jsonDecoder)
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { (completion) in
+                    if case let .failure(error) = completion {
+                        switch error {
+                        case let urlError as URLError:
+                            result(.failure(.urlError(urlError)))
+                        case let decodingError as DecodingError:
+                            result(.failure(.decodingError(decodingError)))
+                        case let apiError as MainScreenServiceError:
+                            result(.failure(apiError))
+                        default:
+                            result(.failure(.genericError))
+                        }
+                    }
+                }, receiveValue: { result(.success($0.homeStore)) })
+                .store(in: &self.subscriptions)
+        }
+    }
+    func fetchBestSellers() -> Future<[BestSeller], MainScreenServiceError> {
+        return Future<[BestSeller], MainScreenServiceError> { [unowned self] result in
+            guard let url = URL(string: apiURL) else {
+                return result(.failure(.urlError(URLError(URLError.unsupportedURL))))
+            }
+            
+            self.urlSession.dataTaskPublisher(for: url)
+                .tryMap { (data, response) -> Data in
+                    guard let httpResponse = response as? HTTPURLResponse,
+                          200...299 ~= httpResponse.statusCode else {
+                        throw MainScreenServiceError.responseError((response as? HTTPURLResponse)?.statusCode ?? 500)
+                        
+                    }
+                    return data
+                }
+                .decode(type: MainScreenData.self, decoder: self.jsonDecoder)
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { (completion) in
+                    if case let .failure(error) = completion {
+                        switch error {
+                        case let urlError as URLError:
+                            result(.failure(.urlError(urlError)))
+                        case let decodingError as DecodingError:
+                            result(.failure(.decodingError(decodingError)))
+                        case let apiError as MainScreenServiceError:
+                            result(.failure(apiError))
+                        default:
+                            result(.failure(.genericError))
+                        }
+                    }
+                }, receiveValue: { result(.success($0.bestSeller)) })
+                .store(in: &self.subscriptions)
+        }
     }
 }
-
-enum ServiceError: Error {
-    case url(URLError)
-    case urlRequest
-    case decode
-}
-
-

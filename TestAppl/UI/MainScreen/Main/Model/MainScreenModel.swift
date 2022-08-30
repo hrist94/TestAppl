@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: - MainScreen
 struct MainScreenData: Codable {
-    let homeStore: [HomeStore]?
-    let bestSeller: [BestSeller]?
+    let homeStore: [HomeStore]
+    let bestSeller: [BestSeller]
 
     enum CodingKeys: String, CodingKey {
         case homeStore = "home_store"
@@ -19,7 +19,7 @@ struct MainScreenData: Codable {
 }
 
 // MARK: - BestSeller
-struct BestSeller: Codable {
+struct BestSeller: Equatable, Hashable, Codable {
     let id: Int?
     let isFavorites: Bool?
     let title: String?
@@ -37,7 +37,7 @@ struct BestSeller: Codable {
 }
 
 // MARK: - HomeStore
-struct HomeStore: Codable {
+struct HomeStore: Equatable, Hashable, Codable {
     let id: Int?
     let isNew: Bool?
     let title, subtitle: String?

@@ -10,6 +10,8 @@ import SnapKit
 
 class MainScreenView: UIView {
     
+    var filterButtonClicked: VoidClosure?
+    
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -35,13 +37,23 @@ class MainScreenView: UIView {
     }()
     
     private var categoryCarousel: UIView = {
-        let view = CategoryCarousel()
+        let view = CategoryCarouselView()
         return view
     }()
     
     private var searchBar: SearchBar = {
         let view = SearchBar()
         view.isUserInteractionEnabled = true
+        return view
+    }()
+    
+    lazy var hotSalesCollectionView: HotSalesView = {
+        let view = HotSalesView()
+        return view
+    }()
+    
+    lazy var bestSellersCollectionView: BestSellerView = {
+        let view = BestSellerView()
         return view
     }()
     
@@ -62,13 +74,15 @@ class MainScreenView: UIView {
         contentView.addSubview(filterButton)
         contentView.addSubview(categoryCarousel)
         contentView.addSubview(searchBar)
+        contentView.addSubview(hotSalesCollectionView)
+        contentView.addSubview(bestSellersCollectionView)
         
         makeConstraints()
     }
     
     private func makeConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -81,7 +95,7 @@ class MainScreenView: UIView {
         
         locationPopUp.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.width.greaterThanOrEqualTo(120)
             make.height.equalTo(20)
         }
@@ -106,9 +120,25 @@ class MainScreenView: UIView {
             make.height.equalTo(34)
         }
         
+        hotSalesCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom).offset(24)
+            make.height.equalTo(220)
+        }
+        
+        bestSellersCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(hotSalesCollectionView.snp.bottom).offset(30)
+            make.height.equalToSuperview()
+        }
+        
     }
     
     private func addTargets() {
-        
+        filterButton.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(filterButtonTapped)))
+    }
+    
+    @objc func filterButtonTapped() {
+        filterButtonClicked?()
     }
 }
