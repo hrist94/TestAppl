@@ -30,6 +30,4 @@ class HotSalesCellViewModel {
     }
 }
 
-enum HotSalesSection {
-    case main
-}
+

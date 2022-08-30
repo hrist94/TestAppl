@@ -11,7 +11,15 @@ import SnapKit
 class HotSalesCell: UICollectionViewCell {
     
     var buyButtonClicked: IntClosure?
-    var isNew: Bool = false
+    var isNew: Bool = false {
+        didSet {
+            if isNew {
+                self.newBadgeBack.isHidden = false
+            } else {
+                self.newBadgeBack.isHidden = true
+            }
+        }
+    }
     
     var viewModel: HotSalesCellViewModel! {
         didSet { setUpViewModel() }
@@ -71,16 +79,12 @@ class HotSalesCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 15
-        configureNew()
+        
         addElements()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configureNew() {
-        self.newBadgeBack.isHidden = isNew
     }
     
     private func addElements() {

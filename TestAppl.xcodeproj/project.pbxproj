@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E18ECF628BDCE6C0004F727 /* BestSellersCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18ECF528BDCE6C0004F727 /* BestSellersCollection.swift */; };
+		2E18ECF928BDCE860004F727 /* BestSellersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18ECF828BDCE860004F727 /* BestSellersCell.swift */; };
+		2E18ECFC28BDCEA20004F727 /* BestSellersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18ECFB28BDCEA20004F727 /* BestSellersViewModel.swift */; };
+		2E18ECFF28BDD5A80004F727 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18ECFE28BDD5A80004F727 /* UILabel.swift */; };
+		2E18ED0428BE00AA0004F727 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18ED0328BE00AA0004F727 /* FilterView.swift */; };
+		2E18ED0628BE00BA0004F727 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E18ED0528BE00BA0004F727 /* FilterViewController.swift */; };
 		2E30512728BD1F2200E1C9EE /* MarkPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E30510928BD1F2100E1C9EE /* MarkPro-Regular.ttf */; };
 		2E30512828BD1F2200E1C9EE /* MarkPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E30510A28BD1F2100E1C9EE /* MarkPro-Bold.ttf */; };
 		2E30512928BD1F2200E1C9EE /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30510B28BD1F2100E1C9EE /* MainScreenViewController.swift */; };
@@ -50,6 +56,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E18ECF528BDCE6C0004F727 /* BestSellersCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersCollection.swift; sourceTree = "<group>"; };
+		2E18ECF828BDCE860004F727 /* BestSellersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersCell.swift; sourceTree = "<group>"; };
+		2E18ECFB28BDCEA20004F727 /* BestSellersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellersViewModel.swift; sourceTree = "<group>"; };
+		2E18ECFE28BDD5A80004F727 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		2E18ED0328BE00AA0004F727 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		2E18ED0528BE00BA0004F727 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		2E3050F228BD1E6D00E1C9EE /* TestAppl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E30510928BD1F2100E1C9EE /* MarkPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkPro-Regular.ttf"; sourceTree = "<group>"; };
 		2E30510A28BD1F2100E1C9EE /* MarkPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkPro-Bold.ttf"; sourceTree = "<group>"; };
@@ -105,6 +117,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E18ECF328BDCE3C0004F727 /* BestSellersCollection */ = {
+			isa = PBXGroup;
+			children = (
+				2E18ECF428BDCE4D0004F727 /* Cell */,
+				2E18ECF528BDCE6C0004F727 /* BestSellersCollection.swift */,
+			);
+			path = BestSellersCollection;
+			sourceTree = "<group>";
+		};
+		2E18ECF428BDCE4D0004F727 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2E18ECF828BDCE860004F727 /* BestSellersCell.swift */,
+				2E18ECFB28BDCEA20004F727 /* BestSellersViewModel.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2E18ECFD28BDD59A0004F727 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				2E18ECFE28BDD5A80004F727 /* UILabel.swift */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		2E18ED0028BDFF950004F727 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				2E18ED0128BDFFA10004F727 /* Filter */,
+				2E18ECF328BDCE3C0004F727 /* BestSellersCollection */,
+				2E30514A28BD20B100E1C9EE /* HotSalesCarousel */,
+				2E30514728BD202F00E1C9EE /* Category */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2E18ED0128BDFFA10004F727 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				2E18ED0328BE00AA0004F727 /* FilterView.swift */,
+				2E18ED0528BE00BA0004F727 /* FilterViewController.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		2E18ED0228BDFFBA0004F727 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2E30515128BD22C200E1C9EE /* ViewController */,
+				2E30514F28BD227D00E1C9EE /* View */,
+				2E30514E28BD21FD00E1C9EE /* Model */,
+				2E30514D28BD21D500E1C9EE /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		2E3050E928BD1E6D00E1C9EE = {
 			isa = PBXGroup;
 			children = (
@@ -188,12 +257,8 @@
 		2E30514C28BD210500E1C9EE /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				2E30515128BD22C200E1C9EE /* ViewController */,
-				2E30514F28BD227D00E1C9EE /* View */,
-				2E30514E28BD21FD00E1C9EE /* Model */,
-				2E30514D28BD21D500E1C9EE /* ViewModel */,
-				2E30514A28BD20B100E1C9EE /* HotSalesCarousel */,
-				2E30514728BD202F00E1C9EE /* Category */,
+				2E18ED0028BDFF950004F727 /* Modules */,
+				2E18ED0228BDFFBA0004F727 /* Main */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -279,6 +344,7 @@
 		2E30515728BD235500E1C9EE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				2E18ECFD28BDD59A0004F727 /* UILabel */,
 				2E58DBDA28BD667300E5C5EE /* Transitions */,
 				2E30515A28BD238400E1C9EE /* UICollectionView */,
 				2E30515928BD237400E1C9EE /* UIView */,
@@ -484,6 +550,7 @@
 			files = (
 				2E30513328BD1F2200E1C9EE /* HotSalesView.swift in Sources */,
 				2E30513628BD1F2200E1C9EE /* InitialPublishers.swift in Sources */,
+				2E18ECFC28BDCEA20004F727 /* BestSellersViewModel.swift in Sources */,
 				2E30514128BD1F2200E1C9EE /* UICollectionView+dequeue.swift in Sources */,
 				2E30513028BD1F2200E1C9EE /* AppDelegate.swift in Sources */,
 				2E30512C28BD1F2200E1C9EE /* UIImageView.swift in Sources */,
@@ -500,8 +567,10 @@
 				2E30512F28BD1F2200E1C9EE /* CategoryCell.swift in Sources */,
 				2EA1107B28BD3AA600576A03 /* MainScreenServiceProtocol.swift in Sources */,
 				2E30512B28BD1F2200E1C9EE /* CategoryCarouselView.swift in Sources */,
+				2E18ECF928BDCE860004F727 /* BestSellersCell.swift in Sources */,
 				2E30512928BD1F2200E1C9EE /* MainScreenViewController.swift in Sources */,
 				2E58DBE728BD667300E5C5EE /* PanelTransition.swift in Sources */,
+				2E18ECFF28BDD5A80004F727 /* UILabel.swift in Sources */,
 				2E58DBE528BD667300E5C5EE /* TransitionDriver.swift in Sources */,
 				2E30513228BD1F2200E1C9EE /* SearchBar.swift in Sources */,
 				2E30513528BD1F2200E1C9EE /* MainScreenModel.swift in Sources */,
@@ -511,9 +580,12 @@
 				2E30512E28BD1F2200E1C9EE /* MainScreenViewModel.swift in Sources */,
 				2E30513928BD1F2200E1C9EE /* MainScreenView.swift in Sources */,
 				2EA1107628BD3A0100576A03 /* MainScreenService.swift in Sources */,
+				2E18ED0628BE00BA0004F727 /* FilterViewController.swift in Sources */,
 				2E58DBE428BD667300E5C5EE /* Math.swift in Sources */,
 				2E58DBEB28BD667300E5C5EE /* TransitionDirection.swift in Sources */,
+				2E18ECF628BDCE6C0004F727 /* BestSellersCollection.swift in Sources */,
 				2E58DBE928BD667300E5C5EE /* PresentationController.swift in Sources */,
+				2E18ED0428BE00AA0004F727 /* FilterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

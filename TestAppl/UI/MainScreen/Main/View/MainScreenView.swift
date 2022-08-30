@@ -10,6 +10,8 @@ import SnapKit
 
 class MainScreenView: UIView {
     
+    var filterButtonClicked: VoidClosure?
+    
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -50,6 +52,11 @@ class MainScreenView: UIView {
         return view
     }()
     
+    lazy var bestSellersCollectionView: BestSellerView = {
+        let view = BestSellerView()
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
@@ -68,13 +75,14 @@ class MainScreenView: UIView {
         contentView.addSubview(categoryCarousel)
         contentView.addSubview(searchBar)
         contentView.addSubview(hotSalesCollectionView)
+        contentView.addSubview(bestSellersCollectionView)
         
         makeConstraints()
     }
     
     private func makeConstraints() {
         scrollView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -87,7 +95,7 @@ class MainScreenView: UIView {
         
         locationPopUp.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.width.greaterThanOrEqualTo(120)
             make.height.equalTo(20)
         }
@@ -118,9 +126,19 @@ class MainScreenView: UIView {
             make.height.equalTo(220)
         }
         
+        bestSellersCollectionView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.top.equalTo(hotSalesCollectionView.snp.bottom).offset(30)
+            make.height.equalToSuperview()
+        }
+        
     }
     
     private func addTargets() {
-        
+        filterButton.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(filterButtonTapped)))
+    }
+    
+    @objc func filterButtonTapped() {
+        filterButtonClicked?()
     }
 }
